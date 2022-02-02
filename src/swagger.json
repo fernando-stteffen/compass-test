@@ -12,8 +12,8 @@
     "/cities": {
       "post": {
         "tags": ["Cities"],
-        "summary": "Create a Citie",
-        "description": "This route create a new citie in database records",
+        "summary": "Create a City",
+        "description": "This route create a new city in database records",
         "requestBody": {
           "content": {
             "application/json": {
@@ -35,12 +35,12 @@
             }
           }
         },
-        "reponses": {
+        "responses": {
           "201": {
             "description": "Created"
           },
           "400": {
-            "description": "Missing property $propertyName"
+            "description": "Missing property a property"
           }
         }
       }
