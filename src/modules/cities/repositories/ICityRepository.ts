@@ -19,6 +19,7 @@ interface ICityRepository {
   findByNameAndState({ name, state }: ICityDTO): Promise<City>;
   findByState(state: string): Promise<City>;
   findById(id: string): Promise<City>;
+  list({ name, state }: ICityDTO): Promise<City[]>;
 }
 
 export { ICityRepository, ICityDTO };
