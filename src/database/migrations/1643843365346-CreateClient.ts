@@ -20,7 +20,7 @@ export class CreateClient1643843365346 implements MigrationInterface {
             type: "char(1)",
           },
           {
-            name: "birthDathe",
+            name: "birthDate",
             type: "timestamp",
           },
           {
