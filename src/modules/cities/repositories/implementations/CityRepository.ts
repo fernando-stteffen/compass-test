@@ -25,6 +25,10 @@ class CityRepository implements ICityRepository {
     return city;
   }
 
+  async findByNameAndState(name: string, state: string): Promise<City> {
+    const city = await this.repository.findOne({ name, state });
+    return city;
+  }
   async findById(id: string): Promise<City> {
     const city = await this.repository.findOne({ id });
     return city;
