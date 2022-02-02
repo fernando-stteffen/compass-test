@@ -15,7 +15,17 @@ class CreateCityUseCase {
     private citiesRepository: ICityRepository
   ) {}
 
-  async execute({ name, state }: IRequest): Promise<void> {
+  async execute(request: IRequest): Promise<void> {
+    const requiredParams = ["name", "state"];
+
+    requiredParams.forEach((param) => {
+      if (!request[param]) {
+        throw new AppError(`Missing property ${param}`);
+      }
+    });
+
+    const { name, state } = request;
+
     const cityAlreadyExistis = await this.citiesRepository.findByNameAndState({
       name,
       state,
@@ -25,7 +35,7 @@ class CreateCityUseCase {
       throw new AppError("That city already exists!");
     }
 
-    this.citiesRepository.create({
+    await this.citiesRepository.create({
       name,
       state,
     });

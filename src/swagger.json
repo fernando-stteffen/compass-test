@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Compass UOL API Documentation",
+    "description": "This is an API to record clients and cities data - God Bless You for reading this ( :D )",
+    "version": "1.0.0",
+    "contact": {
+      "email": "fernandostteffen@gmail.com"
+    }
+  },
+  "paths": {
+    "/cities": {
+      "post": {
+        "tags": ["Cities"],
+        "summary": "Create a Citie",
+        "description": "This route create a new citie in database records",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Pirapora",
+                  "state": "MG"
+                }
+              }
+            }
+          }
+        },
+        "reponses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Missing property $propertyName"
+          }
+        }
+      }
+    }
+  }
+}
