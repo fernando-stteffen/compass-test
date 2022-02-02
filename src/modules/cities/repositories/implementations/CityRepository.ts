@@ -38,6 +38,15 @@ class CityRepository implements ICityRepository {
     const city = await this.repository.findOne({ state });
     return city;
   }
+
+  async list({ name, state }: ICityDTO): Promise<City[]> {
+    const filter = {};
+
+    if (name) Object.assign(filter, { name });
+    if (state) Object.assign(filter, { state });
+
+    return this.repository.find(filter);
+  }
 }
 
 export { CityRepository };
