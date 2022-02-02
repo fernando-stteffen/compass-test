@@ -43,6 +43,54 @@
             "description": "Missing property a property"
           }
         }
+      },
+      "get": {
+        "tags": ["Cities"],
+        "summary": "list Cities recorded on database",
+        "description": "This route return a list of cities registred that list can be filtred by query params at url",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name to cities filter by",
+            "required": false
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "state to cities filter by",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
