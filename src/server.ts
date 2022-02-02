@@ -6,7 +6,7 @@ import "./database";
 
 import "@shared/container";
 
-import "@errors/AppError";
+import { AppError } from "@errors/AppError";
 
 const PORT = 3000;
 
