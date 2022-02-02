@@ -16,6 +16,7 @@ interface ICityDTO {
 interface ICityRepository {
   create({ name, state }: ICityDTO): Promise<void>;
   findByName(name: string): Promise<City>;
+  findByNameAndState(name: string, state: string): Promise<City>;
   findByState(state: string): Promise<City>;
   findById(id: string): Promise<City>;
 }
