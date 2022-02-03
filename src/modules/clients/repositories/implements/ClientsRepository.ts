@@ -46,6 +46,14 @@ class ClientsRepository implements IClientsRepository {
   async alterName(id: string, name: string): Promise<void> {
     await this.repository.update(id, { name });
   }
+
+  async list(name: string): Promise<Client[]> {
+    const filter = {};
+
+    if (name) Object.assign(filter, { name });
+
+    return this.repository.find(filter);
+  }
 }
 
 export { ClientsRepository };
