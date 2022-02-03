@@ -1,5 +1,6 @@
 import { getRepository, Repository } from "typeorm";
 
+import { AppError } from "@errors/AppError";
 import { Client } from "@modules/clients/entities/Clients";
 
 import { IClientsRepository, IClientDTO } from "../IClientsRepository";
@@ -16,7 +17,12 @@ class ClientsRepository implements IClientsRepository {
   }
 
   async findById(id: string): Promise<Client> {
-    return this.repository.findOne({ id });
+    try {
+      const result = await this.repository.findOne({ id });
+      return result;
+    } catch {
+      throw new AppError("Client ID not found!");
+    }
   }
 
   async create({
