@@ -13,7 +13,7 @@ class Client {
   sex: string;
 
   @Column()
-  birthdate: Date;
+  birthDate: Date;
 
   @Column()
   age: number;
