@@ -137,6 +137,40 @@
           }
         }
       },
+      "patch": {
+        "tags": ["Clients"],
+        "summary": "Alter name of a Client",
+        "description": "This route alter name of an client who has alredy on database records",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "id": "84354e5f-1d62-4b31-bc87-593330a7de75",
+                  "name": "Zé pequeno"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Altered"
+          },
+          "400": {
+            "description": "Missing property a property"
+          }
+        }
+      },
       "get": {
         "tags": ["Clients"],
         "summary": "list Clients recorded on database",
@@ -241,7 +275,44 @@
             }
           },
           "400": {
-            "description": "Not found",
+            "description": "Client ID not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Clients"],
+        "summary": "Delete a Client from database",
+        "description": "This route dele a client by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of an client to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "400": {
+            "description": "Client ID not found",
             "content": {
               "application/json": {
                 "schema": {

@@ -18,6 +18,6 @@ clientsRoutes.post("/", createClientController.handle);
 clientsRoutes.get("/", listClientsController.handle);
 clientsRoutes.get("/:id", getClientByIdController.handle);
 clientsRoutes.delete("/:id", deleteClientController.handle);
-clientsRoutes.patch("/:id", alterClientNameController.handle);
+clientsRoutes.patch("/", alterClientNameController.handle);
 
 export { clientsRoutes };
