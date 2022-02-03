@@ -1,10 +1,3 @@
-/*
-[] Consultar cliente pelo nome
-[] Consultar cliente pelo Id
-[] Remover cliente
-[] Alterar o nome do cliente
-*/
-
 import { Client } from "../entities/Clients";
 
 interface IClientDTO {
@@ -22,6 +15,7 @@ interface IClientsRepository {
   create({ name, sex, birthDate, city, state, age }: IClientDTO);
   delete(id: string): Promise<void>;
   alterName(id: string, name: string): Promise<void>;
+  list(name: string): Promise<Client[]>;
 }
 
 export { IClientsRepository, IClientDTO };
