@@ -46,6 +46,7 @@ class ClientsRepository implements IClientsRepository {
   }
 
   async delete(id: string): Promise<void> {
+    await this.findById(id);
     await this.repository.delete({ id });
   }
 
