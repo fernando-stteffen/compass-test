@@ -139,25 +139,19 @@
       },
       "get": {
         "tags": ["Clients"],
-        "summary": "list Cities recorded on database",
-        "description": "This route return a list of cities registred that list can be filtred by query params at url",
+        "summary": "list Clients recorded on database",
+        "description": "This route return a list of clients registred that list can be filtred by name in query params at url",
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "description": "name to cities filter by",
-            "required": false
-          },
-          {
-            "name": "state",
-            "in": "query",
-            "description": "state to cities filter by",
+            "description": "name of an client to filter by",
             "required": false
           }
         ],
         "responses": {
           "200": {
-            "description": "Created",
+            "description": "Received",
             "content": {
               "application/json": {
                 "schema": {
@@ -171,10 +165,91 @@
                       "name": {
                         "type": "string"
                       },
+                      "sex": {
+                        "type": "string"
+                      },
+                      "birthDate": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
                       "state": {
                         "type": "string"
                       },
                       "created_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clients/{id}": {
+      "get": {
+        "tags": ["Clients"],
+        "summary": "Get a Client who has recorded on database",
+        "description": "This route return a client filtred by id at url",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of an client to filter by",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Received",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "sex": {
+                        "type": "string"
+                      },
+                      "birthDate": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
                         "type": "string"
                       }
                     }
